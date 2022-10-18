@@ -62,9 +62,11 @@ export default function TextForm() {
           Clear Text
         </button>
       </div>
-      <div className="bg-red-400">
+      <div>
         <h2 className="text-xl font-bold">Text summary </h2>
+          <p>{(text.split(/\s+/).filter((element)=>{return element.length!==0})).length} words, {text.length} characters </p>
         <h2 className="text-xl font-bold">Preview</h2>
+        <p>{(text.length>0) ?text:'Enter text in above textarea and see preview text here'}</p>
       </div>
     </div>
   );
