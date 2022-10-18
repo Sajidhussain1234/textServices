@@ -1,35 +1,71 @@
-import React from 'react'
-import { useState } from 'react'
+
+
+import React from "react";
+import { useState } from "react";
 
 export default function TextForm() {
-const {text, setText}=useState();
+  const [text, setText] = useState("");
 
-const handleUpOnClick=()=>{
-  setText(text.toUpperCase());
-}
+  const handleOnChange=(event)=>{
+    setText(event.target.value); 
+  }
 
+  const handleUpOnClick = () => {
+    setText(text.toUpperCase());
+  }
+  const handleLowOnClick = ()=>{
+    setText(text.toLowerCase())
+  }
+   
+  const handleESpacesOnClick=()=>{
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(' '));
+  }
+  
 
+  const handleClearTextOnClick = () =>{
+    setText(''); 
+  }
+  
 
 
   return (
-    <div className='container w-2/3 mx-auto'>
-      <h2 className='text-xl font-bold'>Text Conversion Services: </h2>
-      <textarea name="textarea" id="text" cols="120" rows="8" value={text} placeholder='Enter text here' className='border'></textarea>
-      <div className='space-x-2'>
-      <button className='bg-blue-500 border-2 border-black rounded-lg' >Convert to Lowercase</button>
-      <button className='bg-blue-500 border-2 border-black rounded-lg'>Convert to Upercas</button>
-      <button className='bg-blue-500 border-2 border-black rounded-lg'>Remove spaces</button>
-      <button className='bg-blue-500 border-2 border-black rounded-lg'>Clear Text</button>
+    <div className="container w-2/3 mx-auto">
+      <div>
+        <h2 className="text-xl font-bold">Text Conversion Services: </h2>
+        <textarea
+          name="textarea"
+          id="text"
+          cols="120"
+          rows="8"
+          placeholder="Enter your text here"
+          value={text}
+          onChange={handleOnChange}
+          
+          className="border"
+        ></textarea>
       </div>
-      <div className='bg-red-400'>
-      <h2 className='text-xl font-bold'>Text summary </h2>
-      <h2 className='text-xl font-bold'>Preview</h2>
-      
+      <div className="space-x-2">
 
+      <button className="bg-blue-500 border-2 border-black rounded-lg" onClick={handleUpOnClick}>
+          Convert to Upercas
+        </button>
 
+        <button className="bg-blue-500 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleLowOnClick}>
+          Convert to Lowercase
+        </button>
+       
+        <button className="bg-blue-500 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleESpacesOnClick}>
+          Remove spaces
+        </button>
+        <button className="bg-blue-500 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleClearTextOnClick}>
+          Clear Text
+        </button>
       </div>
-      
+      <div className="bg-red-400">
+        <h2 className="text-xl font-bold">Text summary </h2>
+        <h2 className="text-xl font-bold">Preview</h2>
+      </div>
     </div>
-  )
+  );
 }
-
