@@ -28,7 +28,6 @@ export default function TextForm() {
   }
   
 
-
   return (
     <div className="container w-2/3 mx-auto">
       <div>
@@ -47,18 +46,18 @@ export default function TextForm() {
       </div>
       <div className="space-x-2">
 
-      <button className="bg-blue-500 border-2 border-black rounded-lg" onClick={handleUpOnClick}>
+      <button className="bg-slate-400 border-2 border-black rounded-lg" onClick={handleUpOnClick}>
           Convert to Upercas
         </button>
 
-        <button className="bg-blue-500 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleLowOnClick}>
+        <button className="bg-slate-400 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleLowOnClick}>
           Convert to Lowercase
         </button>
        
-        <button className="bg-blue-500 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleESpacesOnClick}>
+        <button className="bg-slate-400 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleESpacesOnClick}>
           Remove spaces
         </button>
-        <button className="bg-blue-500 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleClearTextOnClick}>
+        <button className="bg-slate-400 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleClearTextOnClick}>
           Clear Text
         </button>
       </div>
