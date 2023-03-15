@@ -47,7 +47,7 @@ export default function TextForm() {
       <div className="space-x-2">
 
       <button className="bg-slate-400 border-2 border-black rounded-lg" onClick={handleUpOnClick}>
-          Convert to Upercas
+          Convert to Upercase
         </button>
 
         <button className="bg-slate-400 border-2 border-black rounded-lg" disabled={text.length===0} onClick={handleLowOnClick}>
